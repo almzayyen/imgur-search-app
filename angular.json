@@ -62,18 +62,25 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "imgur-app:build",
+            "allowedHosts": ["*.ngrok-free.app"]
+          },
           "configurations": {
             "production": {
-              "buildTarget": "imgur-app:build:production"
+              "browserTarget": "imgur-app:build:production"
             },
             "development": {
-              "buildTarget": "imgur-app:build:development"
+              "browserTarget": "imgur-app:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "imgur-app:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
